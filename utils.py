@@ -66,8 +66,8 @@ try:
         def _build_ssl_context_new(*args, **kwargs):
             context = _build_ssl_context(*args, **kwargs)
             # fix ssl.SSLError: [SSL: DH_KEY_TOO_SMALL] dh key too small
-            # alternative: context.set_ciphers("DEFAULT@SECLEVEL=1")
-            context.set_ciphers("AES128-SHA")
+            context.set_ciphers("DEFAULT@SECLEVEL=1")
+            #context.set_ciphers("AES128-SHA")
             return context
 
         httplib2._build_ssl_context = _build_ssl_context_new
